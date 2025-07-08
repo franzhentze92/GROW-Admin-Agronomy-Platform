@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 7% 97%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 77 41% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 81 54% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 81 54% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 81 30% 95%;
+    --sidebar-foreground: 81 25% 27%;
+    --sidebar-primary: 81 54% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 81 14% 90%;
+    --sidebar-accent-foreground: 81 25% 27%;
+    --sidebar-border: 81 13% 91%;
+    --sidebar-ring: 81 54% 50%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 77 41% 48%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 81 54% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 81 54% 50%;
+
+    --sidebar-background: 81 28% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 81 54% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 81 25% 27%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 81 25% 27%;
+    --sidebar-ring: 81 54% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans dark:bg-background dark:text-foreground;
+  }
+
+  pre, code {
+    @apply font-mono;
+  }
+}
+
+.markdown-editor {
+  @apply font-mono text-base leading-relaxed;
+}
+
+.markdown-preview {
+  @apply prose max-w-none prose-blue dark:prose-invert;
+}
+
+.markdown-preview pre {
+  @apply bg-secondary p-4 rounded-md overflow-x-auto;
+}
+
+.markdown-preview code {
+  @apply text-sm font-mono text-primary;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+  @apply font-sans font-semibold text-foreground;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+  @apply my-4 ml-6;
+}
+
+/* Hide text label on Gantt chart bars */
+.bar-label {
+  display: none;
+}
+
+/* Calendar Styles */
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #84cc16;
+  --rdp-background-color: #f7fee7;
+  --rdp-accent-color-dark: #65a30d;
+  --rdp-background-color-dark: #365314;
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75);
+  margin: 1em;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  color: white;
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-day_today {
+  background-color: #f7fee7;
+  color: #365314;
+  font-weight: bold;
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: #f7fee7;
+}
+
+.sidebar-main-green {
+  color: #8cb33a !important;
+  font-weight: bold;
+}
+
+.button, .btn, .bg-primary, .btn-primary, .shadcn-ui button, .shadcn-ui .btn, .shadcn-ui .bg-primary, .shadcn-ui .btn-primary {
+  background-color: #8cb33a !important;
+  border-color: #8cb33a !important;
+}
+.button:hover, .btn:hover, .bg-primary:hover, .btn-primary:hover, .shadcn-ui button:hover, .shadcn-ui .btn:hover, .shadcn-ui .bg-primary:hover, .shadcn-ui .btn-primary:hover {
+  background-color: #729428 !important;
+  border-color: #729428 !important;
+}
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  z-index: 1;
+}
+
+.leaflet-popup-content {
+  margin: 8px;
+  font-family: inherit;
+}
+
+.leaflet-popup-content h3 {
+  margin: 0 0 4px 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.leaflet-popup-content p {
+  margin: 0 0 2px 0;
+  font-size: 12px;
+}
+
+.leaflet-popup-content strong {
+  font-weight: 600;
+}
+
+.markdown-tight p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.markdown-tight ul,
+.markdown-tight ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.markdown-tight li {
+  margin-bottom: 0.25em;
+}
