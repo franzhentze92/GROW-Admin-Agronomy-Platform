@@ -238,18 +238,23 @@ const CourseDetailPage: React.FC = () => {
 
   const handleEnroll = async () => {
     if (!courseId) return;
-    // Get the real authenticated user
-    if (!user) {
-      alert('You must be logged in to enroll in a course.');
-      return;
+    // Allow guest enrollment: use user.id if available, otherwise generate a guest ID
+    let userId = user?.id;
+    if (!userId) {
+      // Generate or retrieve a guest ID from localStorage
+      userId = localStorage.getItem('guest_id');
+      if (!userId) {
+        userId = crypto.randomUUID();
+        localStorage.setItem('guest_id', userId);
+      }
     }
     try {
-      // Actually enroll the user in the database
+      // Actually enroll the user (or guest) in the database
       const { error } = await supabase
         .from('course_enrollments')
         .insert({
           course_id: courseId,
-          user_id: user.id,
+          user_id: userId,
           enrolled_at: new Date().toISOString()
         });
       if (error) {

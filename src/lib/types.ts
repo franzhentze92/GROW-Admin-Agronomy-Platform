@@ -94,10 +94,8 @@ export interface Document {
   file_type?: string;
   file_path: string;
   file_size?: number;
-  uploaded_by_user_id?: string;
   created_at: string;
   updated_at: string;
-  uploaded_by_user?: { name: string };
 }
 
 export interface CreateDocumentData {
@@ -107,7 +105,6 @@ export interface CreateDocumentData {
   file_path: string;
   file_type: string;
   file_size: number;
-  uploaded_by_user_id: string;
 }
 
 export interface Analysis {

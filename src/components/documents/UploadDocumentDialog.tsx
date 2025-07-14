@@ -71,12 +71,12 @@ const UploadDocumentDialog: React.FC<UploadDocumentDialogProps> = ({ open, onOpe
   });
 
   const handleSubmit = () => {
-    if (!file || !name || !category || !currentUserId) {
+    if (!file || !name || !category) {
       toast({ title: 'Validation Error', description: 'Please provide a file, name, and category.', variant: 'destructive' });
       return;
     }
 
-    const metadata = { name, description, category, uploaded_by_user_id: currentUserId };
+    const metadata = { name, description, category };
     uploadMutation.mutate({ file, metadata });
   };
 

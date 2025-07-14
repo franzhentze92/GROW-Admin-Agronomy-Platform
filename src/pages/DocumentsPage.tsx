@@ -178,7 +178,6 @@ const DocumentsPage: React.FC = () => {
                   <TableHead>Category</TableHead>
                   <TableHead>File Type</TableHead>
                   <TableHead>Size</TableHead>
-                  <TableHead>Uploaded By</TableHead>
                   <TableHead>Date Uploaded</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
@@ -206,7 +205,6 @@ const DocumentsPage: React.FC = () => {
                       <TableCell>{doc.category}</TableCell>
                       <TableCell>{doc.file_type}</TableCell>
                       <TableCell>{formatFileSize(doc.file_size)}</TableCell>
-                      <TableCell>{doc.uploaded_by_user?.name || 'Unknown'}</TableCell>
                       <TableCell>{new Date(doc.created_at).toLocaleDateString()}</TableCell>
                       <TableCell className="text-right space-x-2">
                         <Button variant="ghost" size="icon" onClick={() => handleDownload(doc.file_path)}>
@@ -247,7 +245,6 @@ const DocumentsPage: React.FC = () => {
               <div><span className="font-semibold">Category:</span> {viewDoc.category}</div>
               <div><span className="font-semibold">File Type:</span> {viewDoc.file_type}</div>
               <div><span className="font-semibold">Size:</span> {formatFileSize(viewDoc.file_size)}</div>
-              <div><span className="font-semibold">Uploaded By:</span> {viewDoc.uploaded_by_user?.name || 'Unknown'}</div>
               <div><span className="font-semibold">Date Uploaded:</span> {new Date(viewDoc.created_at).toLocaleDateString()}</div>
             </div>
             <div className="mt-4 flex gap-2">

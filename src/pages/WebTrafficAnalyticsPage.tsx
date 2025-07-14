@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const DASHBOARDS = {
   client: {
     label: "NTS G.R.O.W (Clients/Users)",
-    url: "https://us.umami.is/share/ypQZw9mpZQ42Kytu/www.admin.ntsgrow.com",
+    url: "https://cloud.umami.is/share/v5ojaVcDWx8T2LLm/www.gestion.ntsgrow.com",
   },
   internal: {
     label: "NTS G.R.O.W (Agronomy/Admin)",
